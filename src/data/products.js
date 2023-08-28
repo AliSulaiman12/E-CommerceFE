@@ -1,27 +1,27 @@
 export const products = [
     {
-      productName: "Iphone",
+      productName: "Iphone-14",
       description: "This is Product Description",
       price: "450,999",
-      image: "https://i.imgur.com/w8bhFUT.png",
+      image: "https://johnlewis.scene7.com/is/image/JohnLewis/109467276?$rsp-pdp-port-640$",
     },
     {
-      productName: "Iphone 16",
+      productName: "Oppo-A17",
       description: "This is Product Description",
       price: "550,999",
-      image: "https://i.imgur.com/BsqLilC.jpeg",
+      image: "https://fazalsons.pk/wp-content/uploads/2022/06/Untitled-design-1-1-1.png",
     },
     {
-      productName: "Iphone 18",
+      productName: "Vivo-Y21",
       description: "This is Product Description",
       price: "650,999",
-      image: "https://i.imgur.com/BsqLilC.jpeg",
+      image: "https://d15gv0os8mv68o.cloudfront.net/images/thumbnails/800/654/detailed/147/Vivo-Y21-Midnight-Blue-7.jpg?t=1690074111",
     },
     {
-      productName: "Iphone 20",
+      productName: "Infinix-Note12",
       description: "This is Product Description",
       price: "750,999",
-      image: "https://i.imgur.com/w8bhFUT.png",
+      image: "https://newmobilesprices.com/wp-content/uploads/2022/10/Infinix-Note-12.webp",
     },
   ];
   
