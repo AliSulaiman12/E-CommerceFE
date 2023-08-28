@@ -1,37 +1,81 @@
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import CartContext from "../../Context/CartContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
+import CartContext from "../../Context/CartContext";
 import "./cart.css";
-import { Archive } from "react-bootstrap-icons";
+import Button from "@mui/material/Button";
+import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
+import HomeIcon from "@mui/icons-material/Home";
 
-const Cart = () => {
+export default function Cart() {
   const cartContext = useContext(CartContext);
-  const { cartItems, removeFromCart, addToCart } = cartContext;
-
+  const { cartItems, removeFromCart } = cartContext;
   return (
-    <div>
-      <Container>
-        {cartItems.length ? (
-          cartItems.map((item, index) => (
-            <div key={index} className="cartRoot">
-              <img src={item.image} />
-              <h6>{item.productName}</h6>
-              <h6>{item.price}</h6>
-              <Archive
-                className="removeIcon"
-                onClick={() => removeFromCart(item.productName)}
-              />
+    <>
+      {cartItems.length ? (
+        cartItems.map((item, itemIndex) => (
+          <div className="cart-flex" key={itemIndex}>
+            <div className="cart-container">
+              <Link to={`/products/${item._id}`}>
+                <div className="cart-content">
+                  <img className="cart-image" src={item.image} alt="" />
+                  <div className="cart-title">
+                    <p>{item.title}</p>
+                    <span className="saperater-min">|</span>
+                    <p>
+                      Qty. {(item.qty, 3)} | Rs. {item.price}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+              <div className="cart-btn">
+                <div>
+                  <span className="saperater-min">
+                    <Button
+                      variant="contained"
+                      color="error"
+                      startIcon={<RemoveShoppingCartIcon />}
+                      className="remove-from-cart remove-min"
+                      onClick={() => removeFromCart(item.title)}
+                    >
+                      Remove
+                    </Button>
+                  </span>
+                  <span className="saperater-max">
+                    <Button
+                      variant="contained"
+                      color="error"
+                      className="remove-from-cart remove-max"
+                      onClick={() => removeFromCart(item.title)}
+                    >
+                      <RemoveShoppingCartIcon />
+                    </Button>
+                  </span>
+                </div>
+              </div>
             </div>
-          ))
-        ) : (
-          <div>
-            <p>No Items in Cart</p>
           </div>
-        )}
-      </Container>
-    </div>
+        ))
+      ) : (
+        <div className="cart-flex">
+          <div className="cart-non-container">
+            <div className="cart-non-title">
+              <p>No items in Cart</p>
+            </div>
+            <div className="cart-non-title home-btn">
+              <Link to={"/"}>
+                <Button
+                  variant="contained"
+                  startIcon={<HomeIcon />}
+                  color="secondary"
+                  size="large"
+                >
+                  Back to Home
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
-};
-
-export default Cart;
+}
