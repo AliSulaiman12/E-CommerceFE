@@ -7,7 +7,7 @@
     "start": "react-scripts start",
     "private": "true",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --output public",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
